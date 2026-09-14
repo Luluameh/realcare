@@ -1,7 +1,7 @@
 // RealCare: Proactive Family Care & Empathetic Recall Companion Logic
 document.addEventListener("DOMContentLoaded", () => {
-  // Global API base resolution (works on file://, live server, and localhost:8000)
-  const API_BASE = (window.location.protocol === "file:" || !window.location.host.includes(":8000"))
+  // Global API base resolution: only fallback to localhost when opened via file:/// protocol
+  const API_BASE = window.location.protocol === "file:"
     ? "http://127.0.0.1:8000"
     : "";
 
@@ -287,6 +287,9 @@ document.addEventListener("DOMContentLoaded", () => {
         activePersonId = defaultPerson.id;
         renderCircleList();
         renderWorkspace();
+      }
+      if (window.innerWidth <= 960) {
+        switchMobileView("circle");
       }
     } catch (err) {
       console.error("Error loading data:", err);
@@ -1102,14 +1105,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function handleAddPersonSubmit(e) {
     e.preventDefault();
+    const nameInput = document.getElementById("personName");
+    const relInput = document.getElementById("personRelationship");
+    const freqInput = document.getElementById("personFrequency");
+    const chanInput = document.getElementById("personChannel");
+    const dateInput = document.getElementById("personLastContact");
+    const notesInput = document.getElementById("personNotes");
+    const factInput = document.getElementById("personFact");
+
     const payload = {
-      name: document.getElementById("personName").value,
-      relationship: document.getElementById("personRelationship").value,
-      checkin_frequency_days: parseInt(document.getElementById("personFrequency").value),
-      preferred_channel: document.getElementById("personChannel").value,
-      last_contact_date: document.getElementById("personLastContact").value,
-      notes: document.getElementById("personNotes").value,
-      initial_fact: document.getElementById("personFact").value
+      name: nameInput ? nameInput.value.trim() : "",
+      relationship: relInput ? relInput.value.trim() : "",
+      checkin_frequency_days: parseInt(freqInput ? freqInput.value : 7) || 7,
+      preferred_channel: chanInput ? chanInput.value : "Phone Call",
+      last_contact_date: (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split("T")[0],
+      notes: notesInput ? notesInput.value.trim() : null,
+      initial_fact: factInput ? factInput.value.trim() : null
     };
 
     try {
@@ -1118,6 +1129,10 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || "Failed to save person");
+      }
       const saved = await res.json();
       modalAddPerson.classList.remove("open");
       formAddPerson.reset();
@@ -1125,10 +1140,13 @@ document.addEventListener("DOMContentLoaded", () => {
       activePersonId = saved.id;
       renderCircleList();
       renderWorkspace();
+      if (window.innerWidth <= 960) {
+        switchMobileView("workspace");
+      }
       playChime();
       showToast(`Added ${saved.name} to your circle!`, `<i class="ri-user-heart-line"></i>`);
     } catch (err) {
-      console.error(err);
+      console.error("Add person error:", err);
       showToast("Failed to add person", `<i class="ri-alert-line"></i>`);
     }
   }
