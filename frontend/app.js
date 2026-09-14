@@ -69,9 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Global Actions
   const btnGlobalScan = document.getElementById("btnGlobalScan");
   const btnResetData = document.getElementById("btnResetData");
+  const btnAutoTour = document.getElementById("btnAutoTour");
 
   if (btnGlobalScan) btnGlobalScan.addEventListener("click", handleGlobalScan);
   if (btnResetData) btnResetData.addEventListener("click", handleResetData);
+  if (btnAutoTour) btnAutoTour.addEventListener("click", runAutoDemoTour);
 
   // Modals
   const modalAddPerson = document.getElementById("modalAddPerson");
@@ -1258,6 +1260,89 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (btnClose) btnClose.onclick   = dismiss;
     if (btnDismiss) btnDismiss.onclick = dismiss;
+  }
+
+  // === Automated Presentation Tour for Screen Recording ===
+  let isTourRunning = false;
+  async function runAutoDemoTour() {
+    if (isTourRunning) return;
+    isTourRunning = true;
+    showToast("Starting RealCare Automated Demo Tour...", `<i class="ri-movie-line"></i>`);
+
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+    try {
+      // 1. Scroll to top & highlight header
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      await sleep(2000);
+
+      // 2. Open Notification Center drawer
+      openNotifDrawer();
+      showToast("Step 1: Care Notification Center & Triple Delivery", `<i class="ri-notification-3-line"></i>`);
+      await sleep(3500);
+
+      // 3. Dispatch Live Demo alert from drawer
+      if (btnTestDispatch) btnTestDispatch.click();
+      await sleep(2500);
+
+      // 4. Close drawer
+      closeNotifDrawer();
+      await sleep(1500);
+
+      // 5. Run Global Circle Scan with Strands Agent
+      showToast("Step 2: Strands Agent Global Scan", `<i class="ri-radar-line"></i>`);
+      if (btnGlobalScan) btnGlobalScan.click();
+      await sleep(3500);
+
+      // 6. Select Eleanor Vance (Memory Care Loved One)
+      showToast("Step 3: Loved One Profile & Memory Anchors", `<i class="ri-user-heart-line"></i>`);
+      window.selectPerson("eleanor-vance");
+      await sleep(2000);
+
+      // 7. Scroll down to Memory Anchors
+      const anchorsSection = document.querySelector(".anchors-grid");
+      if (anchorsSection) anchorsSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      await sleep(3000);
+
+      // 8. Strands Agent Check-in Studio
+      showToast("Step 4: AI Empathetic Draft with Reasoning", `<i class="ri-sparkling-2-line"></i>`);
+      const studioSection = document.querySelector(".draft-studio-wrap");
+      if (studioSection) studioSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      await sleep(1000);
+      await window.handleDraftMessage("eleanor-vance");
+      await sleep(3500);
+
+      // 9. Human-in-the-Loop Approval
+      showToast("Step 5: Human-in-the-Loop Approval", `<i class="ri-shield-check-line"></i>`);
+      const approveBtn = document.querySelector(".draft-actions-row .btn-warm");
+      if (approveBtn) approveBtn.click();
+      await sleep(3000);
+
+      // 10. Scroll to Shared Family Coordination View
+      showToast("Step 6: Shared Family Care Coordination", `<i class="ri-team-line"></i>`);
+      const familySection = document.querySelector(".care-coord-stats-strip");
+      if (familySection) familySection.scrollIntoView({ behavior: "smooth", block: "center" });
+      await sleep(3500);
+
+      // 11. Scroll to Autonomous Heartbeat & Notification Console
+      showToast("Step 7: Proactive Autonomous Heartbeat", `<i class="ri-radar-line"></i>`);
+      const heartbeatCard = document.querySelector(".proactive-heartbeat-card");
+      if (heartbeatCard) heartbeatCard.scrollIntoView({ behavior: "smooth", block: "center" });
+      await sleep(3500);
+
+      // 12. Scroll to Hackathon Showcase Footer
+      showToast("Step 8: Architecture & Hackathon Credentials", `<i class="ri-award-line"></i>`);
+      const footer = document.querySelector(".app-footer");
+      if (footer) footer.scrollIntoView({ behavior: "smooth", block: "start" });
+      await sleep(3500);
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      showToast("RealCare Tour Complete! Ready for voiceover.", `<i class="ri-checkbox-circle-line"></i>`);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      isTourRunning = false;
+    }
   }
 
   // Start RealCare
