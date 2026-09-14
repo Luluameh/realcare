@@ -1,0 +1,38 @@
+[
+  {
+    "id": "fam-01",
+    "loved_one_id": "eleanor-vance",
+    "member_name": "Maya (Daughter)",
+    "relationship": "Daughter / Primary Care Coordinator",
+    "last_contact_date": "2026-09-05",
+    "contact_type": "In-Person Visit",
+    "summary_note": "Brought fresh groceries, helped prune the lavender bushes, and had afternoon tea. Eleanor was in great spirits."
+  },
+  {
+    "id": "fam-02",
+    "loved_one_id": "eleanor-vance",
+    "member_name": "Marcus (Grandson)",
+    "relationship": "Grandson",
+    "last_contact_date": "2026-08-10",
+    "contact_type": "Phone Call",
+    "summary_note": "Called for 10 minutes between hospital rotations. Need to follow up with a photo of Baxter."
+  },
+  {
+    "id": "fam-03",
+    "loved_one_id": "eleanor-vance",
+    "member_name": "Uncle Robert (Brother)",
+    "relationship": "Brother",
+    "last_contact_date": "2026-08-01",
+    "contact_type": "Phone Call",
+    "summary_note": "Talked about old family memories and summer vacations. Eleanor loved hearing his laugh."
+  },
+  {
+    "id": "fam-04",
+    "loved_one_id": "eleanor-vance",
+    "member_name": "You (Grandchild)",
+    "relationship": "Grandchild",
+    "last_contact_date": "2026-08-25",
+    "contact_type": "Phone Call",
+    "summary_note": "Discussed her watercolor class and promised to send some pictures of local garden exhibitions."
+  }
+]

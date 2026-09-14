@@ -1,0 +1,62 @@
+[
+  {
+    "id": "notif-021e6fbe",
+    "person_id": "eleanor-vance",
+    "person_name": "Eleanor Vance",
+    "title": "Test RealCare Alert",
+    "message": "Eleanor Vance has not been contacted in 5 days. Consider calling around 11 AM for tea.",
+    "urgency": "high",
+    "channel": "Web Push & SMS",
+    "created_at": "2026-09-14T15:18:35.230546",
+    "is_read": false,
+    "action_type": "draft"
+  },
+  {
+    "id": "notif-be044a3b",
+    "person_id": "uncle-robert",
+    "person_name": "Uncle Robert",
+    "title": "Care Alert: Uncle Robert is Overdue",
+    "message": "Uncle Robert (Uncle) is 27 day(s) overdue for connection (target: every 21 days).",
+    "urgency": "high",
+    "channel": "Web Push & SMS",
+    "created_at": "2026-09-14T15:18:35.216483",
+    "is_read": false,
+    "action_type": "draft"
+  },
+  {
+    "id": "notif-eleanor-01",
+    "person_id": "eleanor-vance",
+    "person_name": "Eleanor Vance",
+    "title": "Care Alert: Eleanor Vance Overdue",
+    "message": "It has been 5 days since Eleanor's last contact (target: 4 days). Eleanor responds best to warm reminiscing about her blue hydrangeas around 11 AM tea.",
+    "urgency": "high",
+    "channel": "Web Push & SMS",
+    "created_at": "2026-09-14T15:13:20.654104",
+    "is_read": false,
+    "action_type": "draft"
+  },
+  {
+    "id": "notif-marcus-02",
+    "person_id": "marcus-vance",
+    "person_name": "Marcus Vance",
+    "title": "Gentle Check-in: Marcus Vance",
+    "message": "Marcus is finishing his pediatric ICU rotation. A brief 'no-pressure' text message would help him recharge.",
+    "urgency": "medium",
+    "channel": "Web Push",
+    "created_at": "2026-09-14T15:13:20.654161",
+    "is_read": false,
+    "action_type": "draft"
+  },
+  {
+    "id": "notif-family-03",
+    "person_id": "eleanor-vance",
+    "person_name": "Eleanor Vance",
+    "title": "Family Alignment: Maya Vance",
+    "message": "Maya visited Eleanor this morning, watered the blue hydrangeas, and noted Eleanor was smiling and in high spirits.",
+    "urgency": "info",
+    "channel": "Family Circle Feed",
+    "created_at": "2026-09-14T15:13:20.654168",
+    "is_read": true,
+    "action_type": "view_family"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "draft-3485d7e7",
+    "person_id": "uncle-robert",
+    "person_name": "Uncle Robert",
+    "message": "Hi Uncle Uncle! How is the 1968 day-sailer coming along in the barn workshop? Was thinking about the cedar whistles you taught me to carve when I was little. Would love to ring you this weekend to hear about the boat!",
+    "reasoning": "Directly referenced his 1968 sailboat restoration project and the cherished childhood memory of carving cedar whistles.",
+    "status": "pending",
+    "channel": "Phone Call",
+    "created_at": "2026-09-14T05:02:59.179680",
+    "sent_at": null
+  },
+  {
+    "id": "draft-7190117c",
+    "person_id": "eleanor-vance",
+    "person_name": "Eleanor Vance",
+    "message": "Hi Eleanor, I was thinking about you this morning while making tea and wondered how your blue hydrangeas are doing in the sunshine. I'd love to give you a call around 11:00 AM if you're free for a cup of tea.",
+    "reasoning": "Referenced Eleanor's beloved blue hydrangeas and aligned call time with her 11 AM tea routine, avoiding stressful memory quizzes.",
+    "status": "sent",
+    "channel": "Phone Call",
+    "created_at": "2026-09-14T05:02:59.164308",
+    "sent_at": "2026-09-14T05:03:25.986665"
+  },
+  {
+    "id": "draft-c5392de1",
+    "person_id": "uncle-robert",
+    "person_name": "Uncle Robert",
+    "message": "Hi Uncle Uncle! How is the 1968 day-sailer coming along in the barn workshop? Was thinking about the cedar whistles you taught me to carve when I was little. Would love to ring you this weekend to hear about the boat!",
+    "reasoning": "Directly referenced his 1968 sailboat restoration project and the cherished childhood memory of carving cedar whistles.",
+    "status": "pending",
+    "channel": "Phone Call",
+    "created_at": "2026-09-12T05:18:01.643520",
+    "sent_at": null
+  },
+  {
+    "id": "draft-fb4af621",
+    "person_id": "eleanor-vance",
+    "person_name": "Eleanor Vance",
+    "message": "Hi Eleanor, I was thinking about you this morning while making tea and wondered how your blue hydrangeas are doing in the sunshine. I'd love to give you a call around 11:00 AM if you're free for a cup of tea.",
+    "reasoning": "Referenced Eleanor's beloved blue hydrangeas and aligned call time with her 11 AM tea routine, avoiding stressful memory quizzes.",
+    "status": "pending",
+    "channel": "Phone Call",
+    "created_at": "2026-09-12T05:18:01.632780",
+    "sent_at": null
+  }
+]

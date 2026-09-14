@@ -1,0 +1,10 @@
+# Core Strands Agents SDK & AWS Bedrock
+strands-agents>=1.54.0
+boto3>=1.26.0
+
+# Web Backend & Data Validation
+fastapi>=0.110.0
+uvicorn>=0.30.0
+pydantic>=2.4.0
+python-dotenv>=1.0.0
+python-multipart>=0.0.9

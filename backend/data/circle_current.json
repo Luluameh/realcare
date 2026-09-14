@@ -1,0 +1,146 @@
+[
+  {
+    "id": "eleanor-vance",
+    "name": "Eleanor Vance",
+    "relationship": "Grandmother",
+    "avatar_color": "#ec4899",
+    "preferred_channel": "Phone Call",
+    "checkin_frequency_days": 4,
+    "last_contact_date": "2026-09-14",
+    "notes": "Living with mild cognitive impairment. Responds best in the late mornings with calm, warm reminiscence rather than open-ended quizzes.",
+    "facts": [
+      {
+        "id": "f101",
+        "category": "interest",
+        "content": "Obsessed with her blue hydrangeas and lavender garden bed. Spends mornings tending them with her sunhat on.",
+        "date_added": "2026-06-15"
+      },
+      {
+        "id": "f102",
+        "category": "memory",
+        "content": "Fondest memory is the summer family holiday in Cornwall, walking the coastal cliff path and eating clotted cream scones.",
+        "date_added": "2026-07-02"
+      },
+      {
+        "id": "f103",
+        "category": "topic",
+        "content": "Recently started experimenting with soft watercolor painting of birds at her community centre on Tuesdays.",
+        "date_added": "2026-08-10"
+      },
+      {
+        "id": "f104",
+        "category": "routine",
+        "content": "Enjoys chamomile tea with one spoon of wildflower honey around 11:00 AM while listening to classical radio.",
+        "date_added": "2026-08-20"
+      }
+    ]
+  },
+  {
+    "id": "marcus-vance",
+    "name": "Marcus Vance",
+    "relationship": "Brother",
+    "avatar_color": "#3b82f6",
+    "preferred_channel": "SMS",
+    "checkin_frequency_days": 14,
+    "last_contact_date": "2026-09-14",
+    "notes": "Pediatric resident doctor doing grueling hospital rotations. Can feel overwhelmed by long calls; short thoughtful texts mean the world to him.",
+    "facts": [
+      {
+        "id": "f201",
+        "category": "life_update",
+        "content": "Recently adopted a 2-year-old golden retriever mix rescue named Baxter who loves chewing socks.",
+        "date_added": "2026-07-18"
+      },
+      {
+        "id": "f202",
+        "category": "interest",
+        "content": "Big pour-over coffee enthusiast, especially obsessed with natural process Ethiopian beans with blueberry notes.",
+        "date_added": "2026-05-10"
+      },
+      {
+        "id": "f203",
+        "category": "routine",
+        "content": "Just finished a grueling 2-week ICU shift rotation, now transitioning back to daytime clinic hours.",
+        "date_added": "2026-08-08"
+      }
+    ]
+  },
+  {
+    "id": "uncle-robert",
+    "name": "Uncle Robert",
+    "relationship": "Uncle",
+    "avatar_color": "#f59e0b",
+    "preferred_channel": "Phone Call",
+    "checkin_frequency_days": 21,
+    "last_contact_date": "2026-07-28",
+    "notes": "Retired civil engineer, lives in coastal Maine. Always loves trading stories about vintage tools and woodworking.",
+    "facts": [
+      {
+        "id": "f301",
+        "category": "interest",
+        "content": "Currently restoring a wooden 1968 day-sailer boat in his barn workshop for the local harbor regatta.",
+        "date_added": "2026-06-20"
+      },
+      {
+        "id": "f302",
+        "category": "interest",
+        "content": "Harvesting heirloom beefsteak tomatoes from his backyard greenhouse and making homemade spicy marinara.",
+        "date_added": "2026-07-25"
+      },
+      {
+        "id": "f303",
+        "category": "memory",
+        "content": "Taught you how to safely carve cedar whistles when you were nine years old.",
+        "date_added": "2026-04-12"
+      }
+    ]
+  },
+  {
+    "id": "priya-sharma",
+    "name": "Priya Sharma",
+    "relationship": "College Best Friend",
+    "avatar_color": "#10b981",
+    "preferred_channel": "SMS",
+    "checkin_frequency_days": 14,
+    "last_contact_date": "2026-09-03",
+    "notes": "Moved to Chicago 8 months ago for a new UX design role. We promised not to let distance fade our 10-year friendship.",
+    "facts": [
+      {
+        "id": "f401",
+        "category": "life_update",
+        "content": "Joined a ceramic pottery studio in Wicker Park and is learning how to center clay on the wheel.",
+        "date_added": "2026-08-15"
+      },
+      {
+        "id": "f402",
+        "category": "interest",
+        "content": "Training for the Chicago Half Marathon in October, aiming for a sub-2-hour finish.",
+        "date_added": "2026-08-28"
+      }
+    ]
+  },
+  {
+    "id": "arthur-miller",
+    "name": "Arthur Miller",
+    "relationship": "Mentor & Former Neighbor",
+    "avatar_color": "#8b5cf6",
+    "preferred_channel": "Phone Call",
+    "checkin_frequency_days": 30,
+    "last_contact_date": "2026-09-01",
+    "notes": "Former high school astronomy teacher who sparked your interest in science. Widowed two years ago; deeply appreciates thoughtful catch-ups.",
+    "facts": [
+      {
+        "id": "f501",
+        "category": "interest",
+        "content": "Following the latest deep space telescope discoveries about exoplanet atmospheres with immense excitement.",
+        "date_added": "2026-07-04"
+      },
+      {
+        "id": "f502",
+        "category": "interest",
+        "content": "Plays chess every Sunday morning in the town square with local players.",
+        "date_added": "2026-08-14"
+      }
+    ]
+  }
+]

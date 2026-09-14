@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RealCare • Proactive Family Care & Empathetic Recall Agent</title>
+  <meta name="description" content="RealCare is a proactive, empathetic companion agent built with the Strands Agents SDK that keeps families close, prevents isolation, and supports loved ones navigating memory challenges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-emblem" title="RealCare - Empathetic Care Companion">
+          <i class="ri-heart-pulse-line"></i>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1 class="brand-name">RealCare</h1>
+            <span class="hackathon-pill">Agents for Humans</span>
+          </div>
+          <p class="brand-tagline">Staying emotionally close to the people who matter most</p>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="agent-chip" id="agentStatusChip" title="Powered by Strands Agents SDK">
+          <span class="status-indicator"></span>
+          <span>Strands &middot; <strong id="agentStatusText">Ready</strong></span>
+        </div>
+
+        <button class="btn-icon-notif" id="btnNotifCenter" title="Care Notifications" aria-label="Open Notifications">
+          <i class="ri-notification-3-line"></i>
+          <span class="notif-badge zero" id="notifBadge">0</span>
+        </button>
+
+        <button class="btn-ghost" id="btnResetData" title="Reset demo data">
+          <i class="ri-refresh-line"></i>
+          <span class="btn-label">Reset Demo</span>
+        </button>
+
+        <button class="btn-warm" id="btnGlobalScan">
+          <i class="ri-radar-line pulse-icon"></i>
+          <span class="btn-label">Scan Circle</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav-bar" id="mobileNavTabs">
+      <button class="mobile-tab-btn active" data-target="circle" id="mobTabCircle">
+        <i class="ri-group-line"></i> Circle (<span id="mobCountOverdue">0</span>)
+      </button>
+      <button class="mobile-tab-btn" data-target="workspace" id="mobTabWorkspace">
+        <i class="ri-user-heart-line"></i> Care View
+      </button>
+      <button class="mobile-tab-btn" data-target="alerts" id="mobTabAlerts">
+        <i class="ri-alarm-warning-line"></i> Alerts (<span id="mobNotifCount">0</span>)
+      </button>
+    </nav>
+
+    <main class="workspace-layout">
+      <aside class="sidebar-panel" id="sidebarPanel">
+        <div class="sidebar-header">
+          <div class="sidebar-title-row">
+            <h2>Care Circle</h2>
+            <button class="btn-icon-add" id="btnOpenAddPerson" title="Add someone to your circle">
+              <i class="ri-user-add-line"></i>
+            </button>
+          </div>
+          <p class="sidebar-subtext">Loved ones and their proactive check-in rhythm</p>
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all" id="filterAll">All (<span id="countAll">5</span>)</button>
+            <button class="filter-tab" data-filter="overdue" id="filterOverdue">Overdue (<span id="countOverdue">3</span>)</button>
+            <button class="filter-tab" data-filter="recent" id="filterRecent">In Touch (<span id="countRecent">2</span>)</button>
+          </div>
+        </div>
+
+        <div class="circle-list" id="circleList"></div>
+
+        <div class="sidebar-footer">
+          <div class="connection-health-bar">
+            <div class="health-meta">
+              <span class="health-title">Circle Care Health</span>
+              <strong id="healthScorePercent">60%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="healthScoreFill" style="width: 60%;"></div>
+            </div>
+            <div class="health-tip">
+              <i class="ri-lightbulb-flash-line"></i>
+              <span id="healthTipText">3 people are overdue for a gentle connection.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="main-workspace" id="mainWorkspace"></section>
+    </main>
+
+    <!-- RealCare Hackathon Showcase Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div class="footer-brand-col">
+          <div class="footer-brand-title">
+            <span class="footer-logo-dot"><i class="ri-heart-pulse-fill"></i></span>
+            <h4>RealCare</h4>
+            <span class="footer-badge">Strands Agents SDK &middot; Hackathon</span>
+          </div>
+          <p class="footer-bio">
+            An autonomous, empathetic care companion built to eliminate emotional isolation for elderly loved ones and family members navigating cognitive changes.
+          </p>
+          <div class="footer-tags">
+            <span class="footer-tag"><i class="ri-cpu-line"></i> Strands Agents SDK</span>
+            <span class="footer-tag"><i class="ri-shield-check-line"></i> Human-in-the-Loop</span>
+            <span class="footer-tag"><i class="ri-broadcast-line"></i> Multi-Channel Push</span>
+            <span class="footer-tag"><i class="ri-cloud-line"></i> AWS Bedrock Ready</span>
+          </div>
+        </div>
+
+        <div class="footer-features-col">
+          <h5>Agent Architecture &amp; Delivery System</h5>
+          <ul class="footer-feature-list">
+            <li><i class="ri-radar-line"></i> <strong>Proactive Rhythm Daemon:</strong> Autonomous daily scans compare last-contact intervals against custom care cadences.</li>
+            <li><i class="ri-mind-map"></i> <strong>Memory Anchor Synthesis:</strong> Prompts ground conversation in cherished memories, preventing cognitive disorientation.</li>
+            <li><i class="ri-notification-3-line"></i> <strong>Triple Delivery Engine:</strong> Dispatches in-browser ambient audio toasts, OS-level Web Push, and SMS/WhatsApp webhooks.</li>
+            <li><i class="ri-team-line"></i> <strong>Family Circle Sync:</strong> Unified check-in log prevents duplicate outreach while giving all family members peace of mind.</li>
+          </ul>
+        </div>
+
+        <div class="footer-actions-col">
+          <h5>Quick Interactive Demos</h5>
+          <div class="footer-actions-buttons">
+            <button class="btn-footer-action" onclick="document.getElementById('btnNotifCenter').click()">
+              <i class="ri-notification-3-line"></i> Notification Center
+            </button>
+            <button class="btn-footer-action" onclick="document.getElementById('btnGlobalScan').click()">
+              <i class="ri-radar-line"></i> Run Circle Scan
+            </button>
+            <button class="btn-footer-action" onclick="document.getElementById('btnOpenAddPerson').click()">
+              <i class="ri-user-add-line"></i> Add Loved One
+            </button>
+            <button class="btn-footer-action" onclick="document.getElementById('btnResetData').click()">
+              <i class="ri-refresh-line"></i> Reset Seed Data
+            </button>
+          </div>
+          <div class="footer-status-pill">
+            <span class="status-indicator"></span>
+            <span>Agent Engine Status: <strong>Active &middot; Ready</strong></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 RealCare &mdash; Designed for empathetic family care. Built for the Hackathon.</span>
+        <div class="footer-links">
+          <span>Privacy-Preserving Local Memory</span> &bull; <span>Non-Intrusive Care Coordination</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- In-Page Notification Popup (slides up from bottom-right) -->
+    <div class="notif-popup-wrap" id="notifPopup">
+      <div class="notif-popup-inner">
+        <div class="notif-popup-header">
+          <div class="notif-popup-brand-row">
+            <span class="notif-popup-app-icon"><i class="ri-heart-pulse-line"></i></span>
+            <span class="notif-popup-app-name">RealCare</span>
+            <span class="notif-popup-live-chip">Live Alert</span>
+          </div>
+          <span class="notif-popup-ts">Just now</span>
+          <button class="notif-popup-x" id="btnClosePopup">&times;</button>
+        </div>
+        <div class="notif-popup-body">
+          <div class="notif-popup-avatar" id="popupAvatar">E</div>
+          <div class="notif-popup-text">
+            <div class="notif-popup-title" id="popupTitle">Eleanor Vance &middot; Overdue 5 days</div>
+            <div class="notif-popup-msg" id="popupMsg">She loves morning chamomile tea. A warm message now could mean everything.</div>
+          </div>
+        </div>
+        <div class="notif-popup-footer">
+          <button class="notif-popup-btn-dismiss" id="btnPopupDismiss">Dismiss</button>
+          <button class="notif-popup-btn-review" id="btnPopupReview">
+            Open in App <i class="ri-arrow-right-line"></i>
+          </button>
+        </div>
+        <div class="notif-popup-bar" id="popupBar"></div>
+      </div>
+    </div>
+
+    <!-- Notification Drawer Backdrop -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- Notification Drawer -->
+    <aside class="notif-drawer" id="notifDrawer">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon-wrap">
+            <i class="ri-notification-3-line"></i>
+          </div>
+          <div>
+            <h3>Care Alerts</h3>
+            <p class="drawer-subtitle">Proactive notifications for your loved ones</p>
+          </div>
+        </div>
+        <button class="btn-drawer-close" id="btnCloseNotifDrawer" aria-label="Close">&times;</button>
+      </div>
+
+      <!-- How You're Notified — Step Guide -->
+      <div class="notif-how-to">
+        <div class="how-to-header">
+          <span class="how-to-title">
+            <i class="ri-shield-check-line"></i>
+            How You're Notified
+          </span>
+          <button class="btn-test-dispatch" id="btnTestDispatch">
+            <i class="ri-play-circle-line"></i> Live Demo
+          </button>
+        </div>
+        <div class="how-to-steps">
+          <div class="how-step active">
+            <div class="how-step-icon emerald"><i class="ri-window-line"></i></div>
+            <div class="how-step-content">
+              <div class="how-step-name">In-App Badge &amp; Live Card</div>
+              <div class="how-step-desc">Bell badge updates on every scan &mdash; Live alert card slides in from the bottom-right</div>
+            </div>
+            <span class="how-step-badge live">Active</span>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon amber"><i class="ri-computer-line"></i></div>
+            <div class="how-step-content">
+              <div class="how-step-name">Desktop Push</div>
+              <div class="how-step-desc">OS-level popup even when the tab is minimised or the browser is in the background</div>
+            </div>
+            <button class="btn-pill-action" id="btnTogglePush">Enable</button>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon violet"><i class="ri-chat-3-line"></i></div>
+            <div class="how-step-content">
+              <div class="how-step-name">SMS / WhatsApp Gateway</div>
+              <div class="how-step-desc">Simulated Twilio integration fires alongside every scan that finds overdue contacts</div>
+            </div>
+            <span class="how-step-badge">Simulated</span>
+          </div>
+        </div>
+        <p class="push-status-line" id="pushStatusText">Click Enable above to activate desktop push alerts</p>
+      </div>
+
+      <div class="drawer-actions-bar">
+        <span class="unread-count-label" id="drawerUnreadLabel">Loading alerts&hellip;</span>
+        <button class="btn-link-action" id="btnMarkAllRead">Mark all read</button>
+      </div>
+
+      <div class="drawer-notif-list" id="drawerNotifList"></div>
+    </aside>
+
+    <!-- Modal: Add Person -->
+    <div class="modal-backdrop" id="modalAddPerson">
+      <div class="modal-window">
+        <div class="modal-top">
+          <div class="modal-heading">
+            <div class="modal-icon-wrap emerald"><i class="ri-user-add-line"></i></div>
+            <h3>Add to Your Circle</h3>
+          </div>
+          <button class="btn-modal-close" id="btnCloseAddPerson">&times;</button>
+        </div>
+        <p class="modal-intro">Store who they are and how often you'd like to reach out so you never drift apart.</p>
+        <form id="formAddPerson">
+          <div class="form-field">
+            <label for="personName">Full Name</label>
+            <input type="text" id="personName" required placeholder="e.g. Grandma Rose, Marcus">
+          </div>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="personRelationship">Relationship</label>
+              <input type="text" id="personRelationship" required placeholder="e.g. Grandmother, Brother">
+            </div>
+            <div class="form-field">
+              <label for="personFrequency">Check-in Cadence</label>
+              <select id="personFrequency">
+                <option value="3">Every 3 days (Memory Care)</option>
+                <option value="7">Every week</option>
+                <option value="14" selected>Every 2 weeks</option>
+                <option value="30">Monthly</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="personChannel">Preferred Channel</label>
+              <select id="personChannel">
+                <option value="Phone Call">Phone Call</option>
+                <option value="SMS">SMS / Text</option>
+                <option value="In-Person Visit">In-Person Visit</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="personLastContact">Last Contact Date</label>
+              <input type="date" id="personLastContact" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="personNotes">Care Context</label>
+            <textarea id="personNotes" rows="2" placeholder="e.g. Mild cognitive impairment. Enjoys late morning gardening."></textarea>
+          </div>
+          <div class="form-field">
+            <label for="personFact">A Cherished Memory or Favourite Hobby</label>
+            <input type="text" id="personFact" placeholder="e.g. Loves blue hydrangeas and chamomile tea with honey">
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-ghost" id="btnCancelAddPerson">Cancel</button>
+            <button type="submit" class="btn-warm">Add to Circle</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Add Memory Anchor -->
+    <div class="modal-backdrop" id="modalAddFact">
+      <div class="modal-window">
+        <div class="modal-top">
+          <div class="modal-heading">
+            <div class="modal-icon-wrap amber"><i class="ri-mental-health-line"></i></div>
+            <h3>Add Memory Anchor for <span id="addFactPersonName"></span></h3>
+          </div>
+          <button class="btn-modal-close" id="btnCloseAddFact">&times;</button>
+        </div>
+        <p class="modal-intro">The RealCare Recall Agent uses these authentic details to craft deeply personal check-in drafts.</p>
+        <form id="formAddFact">
+          <input type="hidden" id="addFactPersonId">
+          <div class="form-field">
+            <label for="factCategory">Category</label>
+            <select id="factCategory">
+              <option value="memory">Cherished Memory</option>
+              <option value="interest">Hobby &amp; Passion</option>
+              <option value="routine">Daily Routine / Comfort</option>
+              <option value="topic">Recent Topic / Discussion</option>
+              <option value="life_update">Life Update</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="factContent">Specific Memory or Story</label>
+            <textarea id="factContent" required rows="3" placeholder="e.g. Fondly remembered their summer trip to Cornwall walking the cliff path and baking scones."></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-ghost" id="btnCancelAddFact">Cancel</button>
+            <button type="submit" class="btn-warm">Save Anchor</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Log Family Check-in -->
+    <div class="modal-backdrop" id="modalLogFamily">
+      <div class="modal-window">
+        <div class="modal-top">
+          <div class="modal-heading">
+            <div class="modal-icon-wrap violet"><i class="ri-home-heart-line"></i></div>
+            <h3>Log Family Check-in</h3>
+          </div>
+          <button class="btn-modal-close" id="btnCloseLogFamily">&times;</button>
+        </div>
+        <p class="modal-intro">Share updates with the whole family so everyone knows your loved one is cared for.</p>
+        <form id="formLogFamily">
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="famMemberName">Who reached out?</label>
+              <input type="text" id="famMemberName" required placeholder="e.g. Maya (Daughter), Marcus">
+            </div>
+            <div class="form-field">
+              <label for="famContactType">How did you connect?</label>
+              <select id="famContactType">
+                <option value="Phone Call">Phone Call</option>
+                <option value="In-Person Visit">In-Person Visit</option>
+                <option value="Video Call">Video Call</option>
+                <option value="Care Package">Care Package / Letter</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="famSummary">Notes &amp; Observations</label>
+            <textarea id="famSummary" required rows="3" placeholder="e.g. Visited in the morning, helped with the garden. Eleanor was full of stories and smiling."></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-ghost" id="btnCancelLogFamily">Cancel</button>
+            <button type="submit" class="btn-warm">Save Touchpoint</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-warm" id="appToast" role="status" aria-live="polite">
+      <span class="toast-icon" id="toastIcon">&#10024;</span>
+      <span class="toast-text" id="toastMessage">Ready</span>
+    </div>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
